@@ -1,4 +1,4 @@
-// entities/review.entity.ts
+
 import {
   Entity,
   PrimaryGeneratedColumn,

@@ -83,7 +83,6 @@ export class UserRepository extends Repository<User> {
     user.firstname = firstname;
     user.lastname = lastname;
     user.phone = phone;
-    // user.roleId = roleId;
     if (password && loggedInUser.email === 'super@emrbilling.com') {
       user.salt = await bcrypt.genSalt();
       user.password = await bcrypt.hash(password, user.salt);

@@ -30,7 +30,6 @@ import { ReviewModule } from './review/review.module';
         return {
           ssl: isProduction,
           type: 'postgres',
-          // autoLoadEntities: true,
           entities: [__dirname + '/../**/*.entity.{js,ts}'],
           synchronize: false,
           host: configService.get('DB_HOST'),
