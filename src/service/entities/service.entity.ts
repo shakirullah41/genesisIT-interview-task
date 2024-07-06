@@ -27,6 +27,12 @@ export class Service {
   @Column()
   merchantId: number;
 
+  @Column('decimal', { precision: 9, scale: 6 })
+  latitude: number;
+
+  @Column('decimal', { precision: 9, scale: 6 })
+  longitude: number;
+
   @OneToMany(() => Booking, (booking) => booking.service)
   bookings: Booking[];
 
