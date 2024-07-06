@@ -5,6 +5,8 @@ import {
   ManyToOne,
   OneToOne,
   JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import { Merchant } from '../../merchant/entities/merchant.entity';
 import { Payment } from '../../payment/entities/payment.entity';
@@ -61,4 +63,10 @@ export class Booking {
   @OneToOne(() => Review, (review) => review.booking)
   @JoinColumn()
   review: Review;
+
+  @CreateDateColumn({ type: 'timestamp with time zone' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ type: 'timestamp with time zone' })
+  updatedAt: Date;
 }

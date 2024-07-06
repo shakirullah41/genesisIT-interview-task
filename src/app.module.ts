@@ -12,6 +12,8 @@ import { ServiceModule } from './service/service.module';
 import { BookingModule } from './booking/booking.module';
 import { PaymentModule } from './payment/payment.module';
 import { ReviewModule } from './review/review.module';
+import { CreditCardModule } from './credit-card/credit-card.module';
+import { WalletModule } from './wallet/wallet.module';
 
 @Module({
   imports: [
@@ -47,6 +49,8 @@ import { ReviewModule } from './review/review.module';
     BookingModule,
     PaymentModule,
     ReviewModule,
+    CreditCardModule,
+    WalletModule,
   ],
   controllers: [AppController],
   providers: [
