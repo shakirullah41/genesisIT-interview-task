@@ -13,7 +13,7 @@ import { AuthService } from './auth.service';
 import { Public } from './decorator/public.decorator';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { SignUpDto } from './dto/signup.dto';
-import { User } from '../user/user.entity';
+import { User } from '../user/entities/user.entity';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -24,7 +24,7 @@ export class AuthController {
   @HttpCode(HttpStatus.OK)
   @Post('login')
   login(
-    @Body() authCredentialsDto: AuthCredentialsDto,
+    @Body() authCredentialsDto: AuthCredentialsDto
   ): Promise<{ accessToken: string }> {
     return this.authService.login(authCredentialsDto);
   }

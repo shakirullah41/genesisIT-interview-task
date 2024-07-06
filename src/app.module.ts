@@ -7,6 +7,11 @@ import { configValidationSchema } from '../config.schema';
 import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/guard/jwt.guard';
+import { MerchantModule } from './merchant/merchant.module';
+import { ServiceModule } from './service/service.module';
+import { BookingModule } from './booking/booking.module';
+import { PaymentModule } from './payment/payment.module';
+import { ReviewModule } from './review/review.module';
 
 @Module({
   imports: [
@@ -38,6 +43,11 @@ import { JwtAuthGuard } from './auth/guard/jwt.guard';
       },
     }),
     AuthModule,
+    MerchantModule,
+    ServiceModule,
+    BookingModule,
+    PaymentModule,
+    ReviewModule,
   ],
   controllers: [AppController],
   providers: [
