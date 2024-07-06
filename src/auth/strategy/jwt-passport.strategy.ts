@@ -4,7 +4,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { ILike } from 'typeorm';
 import { UserService } from '../../user/user.service';
-import { User } from '../../user/user.entity';
+import { User } from '../../user/entities/user.entity';
 
 @Injectable() // to make it injectable so other modules can use it
 export class JwtPassportStrategy extends PassportStrategy(Strategy) {

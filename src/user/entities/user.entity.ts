@@ -6,8 +6,12 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { Booking } from '../../booking/entities/booking.entity';
+import { Payment } from '../../payment/entities/payment.entity';
+import { Review } from '../../review/entities/review.entity';
 
 @Entity({ name: 'user' })
 export class User extends BaseEntity {
@@ -30,6 +34,15 @@ export class User extends BaseEntity {
 
   @Column({ nullable: true })
   phone: string;
+
+  @OneToMany(() => Booking, (booking) => booking.user)
+  bookings: Booking[];
+
+  @OneToMany(() => Payment, (payment) => payment.user)
+  payments: Payment[];
+
+  @OneToMany(() => Review, (review) => review.user)
+  reviews: Review[];
 
   @CreateDateColumn({ type: 'timestamp with time zone' })
   createdAt: Date;

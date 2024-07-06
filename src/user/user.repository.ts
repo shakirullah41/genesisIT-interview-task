@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { DataSource, ILike, Repository } from 'typeorm';
 import { AuthCredentialsDto } from '../auth/dto/auth-credentials.dto';
-import { User } from './user.entity';
+import { User } from './entities/user.entity';
 import * as bcrypt from 'bcrypt';
 import { SignUpDto } from '../auth/dto/signup.dto';
 import { GetUserDto } from './dto/get-user.dto';
@@ -37,7 +37,9 @@ export class UserRepository extends Repository<User> {
       if (['23505', '23503', '23502', '23514'].includes(e.code)) {
         throw new ConflictException(e.detail);
       } else {
-        throw new InternalServerErrorException(e);
+        throw new InternalServerErrorException({
+          error: 'Something went wrong, please try again later.',
+        });
       }
     }
     delete user.password;
@@ -96,7 +98,9 @@ export class UserRepository extends Repository<User> {
       if (['23505', '23503', '23502', '23514'].includes(e.code)) {
         throw new ConflictException(e.detail);
       } else {
-        throw new InternalServerErrorException(e);
+        throw new InternalServerErrorException({
+          error: 'Something went wrong, please try again later.',
+        });
       }
     }
     return user;
@@ -133,7 +137,9 @@ export class UserRepository extends Repository<User> {
       if (['23505', '23503', '23502', '23514'].includes(e.code)) {
         throw new ConflictException(e.detail);
       } else {
-        throw new InternalServerErrorException(e);
+        throw new InternalServerErrorException({
+          error: 'Something went wrong, please try again later.',
+        });
       }
     }
     return user;

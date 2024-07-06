@@ -13,10 +13,10 @@ import { GetUser } from '../auth/decorator/get-user.decorator';
 import { GetUserDto } from './dto/get-user.dto';
 import { ResetPasswordDto } from './dto/reset-password.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { UserIsUserGuard } from './extras/userIsUser.guard';
-import { User } from './user.entity';
+import { UserIsUserGuard } from './guard/userIsUser.guard';
 import { UserService } from './user.service';
 import { ApiTags } from '@nestjs/swagger';
+import { User } from './entities/user.entity';
 
 @ApiTags('User')
 @Controller('user')
