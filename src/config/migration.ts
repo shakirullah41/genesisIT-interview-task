@@ -23,6 +23,5 @@ const config = {
     migrationsDir: 'migration',
   },
 };
-console.log(config);
 export default registerAs('migration', () => config);
 export const connectionSource = new DataSource(config as DataSourceOptions);

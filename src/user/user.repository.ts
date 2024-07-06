@@ -49,12 +49,7 @@ export class UserRepository extends Repository<User> {
   async getUsers(
     getUserDto: GetUserDto
   ): Promise<{ total: number; items: User[] }> {
-    const {
-      email,
-      phone,
-      page,
-      pageSize,
-    } = getUserDto;
+    const { email, phone, page, pageSize } = getUserDto;
     const pageOffset = (page - 1) * pageSize;
     // createQueryBuilder is builin method to create query builder that interacts with task table bcz its task repository
     // and the paramenter 'task' is an alias or keyword that refer to the task entity
@@ -79,14 +74,10 @@ export class UserRepository extends Repository<User> {
     updateUserDto: UpdateUserDto,
     loggedInUser: User
   ): Promise<User> {
-    const { firstname, lastname, email, phone, password } = updateUserDto;
+    const { firstname, lastname, email, phone } = updateUserDto;
     user.firstname = firstname;
     user.lastname = lastname;
     user.phone = phone;
-    if (password && loggedInUser.email === 'super@emrbilling.com') {
-      user.salt = await bcrypt.genSalt();
-      user.password = await bcrypt.hash(password, user.salt);
-    }
     if (email) {
       user.email = email;
     }

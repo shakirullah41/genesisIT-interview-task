@@ -5,7 +5,7 @@ import { SignUpDto } from '../auth/dto/signup.dto';
 import { GetUserDto } from './dto/get-user.dto';
 import { ResetPasswordDto } from './dto/reset-password.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { User } from './user.entity';
+import { User } from './entities/user.entity';
 import { UserRepository } from './user.repository';
 
 @Injectable()

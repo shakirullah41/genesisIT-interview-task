@@ -16,7 +16,9 @@ import { CreateMerchantDto } from './dto/create-merchant.dto';
 import { GetMerchantDto } from './dto/get-merchant.dto';
 import { UpdateMerchantDto } from './dto/update-merchant.dto';
 import { Merchant } from './entities/merchant.entity';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('merchant')
 @Controller('merchant')
 export class MerchantController {
   constructor(private merchantService: MerchantService) {}

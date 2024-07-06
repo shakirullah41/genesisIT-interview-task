@@ -12,6 +12,8 @@ import * as bcrypt from 'bcrypt';
 import { Booking } from '../../booking/entities/booking.entity';
 import { Payment } from '../../payment/entities/payment.entity';
 import { Review } from '../../review/entities/review.entity';
+import { CreditCard } from '../../credit-card/entities/credit-card.entity';
+import { Wallet } from '../../wallet/entities/wallet.entity';
 
 @Entity({ name: 'user' })
 export class User extends BaseEntity {
@@ -43,6 +45,12 @@ export class User extends BaseEntity {
 
   @OneToMany(() => Review, (review) => review.user)
   reviews: Review[];
+
+  @OneToMany(() => CreditCard, (ceditCard) => ceditCard.user)
+  creditCards: CreditCard[];
+
+  @OneToMany(() => Wallet, (wallet) => wallet.user)
+  wallets: Wallet[];
 
   @CreateDateColumn({ type: 'timestamp with time zone' })
   createdAt: Date;
