@@ -5,13 +5,17 @@ import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.setGlobalPrefix('api');
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+    })
+  );
   // swagger setup
   const config = new DocumentBuilder()
-    .setTitle('API Documentation')
-    .setDescription('API description')
+    .setTitle('Api Documentation')
+    .setDescription('Banking Mobile Application API')
     .setVersion('1.0')
-    .addTag('Banking Mobile Application API')
     .addBearerAuth(
       { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
       'accessToken'
@@ -21,13 +25,6 @@ async function bootstrap() {
   SwaggerModule.setup('apidoc', app, document, {
     swaggerOptions: { defaultModelsExpandDepth: -1 },
   });
-
-  app.setGlobalPrefix('api');
-  app.useGlobalPipes(
-    new ValidationPipe({
-      transform: true,
-    })
-  );
 
   // cors whitelisting
   let whitelist = ['http://localhost:3000'];
