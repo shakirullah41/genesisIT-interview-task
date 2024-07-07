@@ -19,21 +19,14 @@ export class AuthService {
   async login(
     authCredentialsDto: AuthCredentialsDto
   ): Promise<{ accessToken: string }> {
-    try {
-      const user =
-        await this.userService.validateUserPassword(authCredentialsDto);
-      if (!user) {
-        throw new UnauthorizedException('Invalid credentials');
-      }
-      const { id, email } = user;
-      const accessToken = await this.generateToken({ id, email });
-      return { accessToken };
-    } catch (e) {
-      console.log(e);
-      throw new InternalServerErrorException({
-        error: 'Something went wrong, please try again later.',
-      });
+    const user =
+      await this.userService.validateUserPassword(authCredentialsDto);
+    if (!user) {
+      throw new UnauthorizedException('Invalid credentials');
     }
+    const { id, email } = user;
+    const accessToken = await this.generateToken({ id, email });
+    return { accessToken };
   }
   async signUp(signUpDto: SignUpDto): Promise<User> {
     return this.userService.signUp(signUpDto);

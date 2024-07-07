@@ -47,7 +47,7 @@ export class BookingController {
   }
 
   @Patch(':id/complete')
-  async completeBooking(@Param('id', ParseIntPipe) id: number) {
+  completeBooking(@Param('id', ParseIntPipe) id: number) {
     return this.bookingService.markAsComplete(id);
   }
 

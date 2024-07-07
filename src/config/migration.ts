@@ -4,7 +4,7 @@ import { DataSource, DataSourceOptions } from 'typeorm';
 
 dotenvConfig({ path: '.env' });
 const isProduction = process.env.STAGE === 'prod';
-
+const isTest = process.env.STAGE === 'test';
 const config = {
   ssl: isProduction,
   name: 'migration',
@@ -15,7 +15,9 @@ const config = {
   port: process.env.DB_PORT,
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE_NAME,
+  database: isTest
+    ? process.env.DB_TEST_DATABASE_NAME
+    : process.env.DB_DATABASE_NAME,
   logging: true,
   migrationsTableName: 'migrations',
   migrations: ['migration/*.{js,ts}'],

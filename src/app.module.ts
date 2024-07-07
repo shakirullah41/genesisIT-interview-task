@@ -29,6 +29,7 @@ import { WalletModule } from './wallet/wallet.module';
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
         const isProduction = configService.get('STAGE') === 'prod';
+        const isTest = configService.get('STAGE') === 'test';
         return {
           ssl: isProduction,
           type: 'postgres',
@@ -38,7 +39,9 @@ import { WalletModule } from './wallet/wallet.module';
           port: configService.get('DB_PORT'),
           username: configService.get('DB_USERNAME'),
           password: configService.get('DB_PASSWORD'),
-          database: configService.get('DB_DATABASE_NAME'),
+          database: isTest
+            ? configService.get('DB_TEST_DATABASE_NAME')
+            : configService.get('DB_DATABASE_NAME'),
           logging: true,
         };
       },

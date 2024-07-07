@@ -92,22 +92,22 @@ export class BookingRepository extends Repository<Booking> {
     return booking;
   }
   async updateStatus(id, updateStatusDto: UpdateStatusDto): Promise<Booking> {
+    const booking = await this.getBookingById(id);
+    if (!Booking) {
+      throw new NotFoundException(`Booking with ID "${id}" not found`);
+    }
+    const { status, paymentStatus } = updateStatusDto;
+    if (status && booking.status !== BookingStatus.PENDING) {
+      throw new BadRequestException(
+        'Only bookings with status "PENDING" can be updated.'
+      );
+    }
+    if (paymentStatus && booking.paymentStatus !== PaymentStatus.UNPAID) {
+      throw new BadRequestException(
+        'Only payment with status "UNPAID" can be updated.'
+      );
+    }
     try {
-      const booking = await this.getBookingById(id);
-      if (!Booking) {
-        throw new NotFoundException(`Booking with ID "${id}" not found`);
-      }
-      const { status, paymentStatus } = updateStatusDto;
-      if (status && booking.status !== BookingStatus.PENDING) {
-        throw new BadRequestException(
-          'Only bookings with status "PENDING" can be updated.'
-        );
-      }
-      if (paymentStatus && booking.paymentStatus !== PaymentStatus.UNPAID) {
-        throw new BadRequestException(
-          'Only payment with status "UNPAID" can be updated.'
-        );
-      }
       if (status) {
         booking.status = status;
       }
