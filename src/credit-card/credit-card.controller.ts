@@ -19,7 +19,7 @@ import { CreditCard } from './entities/credit-card.entity';
 import { CreditCardService } from './credit-card.service';
 
 @ApiTags('CreditCard')
-@Controller('CreditCard')
+@Controller('credit-card')
 export class CreditCardController {
   constructor(private creditCardService: CreditCardService) {}
 
