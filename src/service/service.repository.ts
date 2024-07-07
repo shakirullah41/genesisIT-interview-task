@@ -50,14 +50,14 @@ export class ServiceRepository extends Repository<Service> {
       // NOTE: search for the all nearest services within 50 Km of the area.
       // for ths to work we need to install and add postgis extension to database
 
-      // if (latitude && longitude) {
-      //   query.andWhere(
-      //     `
-      //     ( 6371 * acos( cos( radians(:latitude) ) * cos( radians(service.latitude) ) * cos( radians(service.longitude) - radians(:longitude) ) + sin( radians(:latitude) ) * sin( radians(service.latitude) ) ) ) < :radius
-      //   `,
-      //     { latitude, longitude, radius }
-      //   );
-      // }
+      if (latitude && longitude) {
+        query.andWhere(
+          `
+          ( 6371 * acos( cos( radians(:latitude) ) * cos( radians(service.latitude) ) * cos( radians(service.longitude) - radians(:longitude) ) + sin( radians(:latitude) ) * sin( radians(service.latitude) ) ) ) < :radius
+        `,
+          { latitude, longitude, radius }
+        );
+      }
 
       const [items, total] = await query.getManyAndCount();
       return { items, total };
