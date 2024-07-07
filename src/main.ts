@@ -2,6 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import * as morgan from 'morgan';
+import { TransformInterceptor } from './helpers/interceptors/transform.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -11,6 +13,12 @@ async function bootstrap() {
       transform: true,
     })
   );
+  app.use(
+    morgan(
+      ':remote-addr :user-agent - :remote-user [:date[web]] ":method :url HTTP/:http-version" :status :res[content-length] - :response-time ms'
+    )
+  );
+  app.useGlobalInterceptors(new TransformInterceptor());
   // swagger setup
   const config = new DocumentBuilder()
     .setTitle('Api Documentation')
