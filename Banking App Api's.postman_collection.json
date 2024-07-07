@@ -1,0 +1,639 @@
+{
+	"info": {
+		"_postman_id": "9e07a1ef-15fb-4c4d-ba99-424c670937ff",
+		"name": "Banking App Api's",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "319862"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/api/auth/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"shakirullah\",\n    \"email\": \"shakir@test.com\",\n    \"phone\": \"+92313933229\",\n    \"password\": \"Asdfg@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				},
+				"description": "api to create new user"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"shakir@test.com\",\n    \"password\": \"Asdfg@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				},
+				"description": "Login User"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/auth/profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzIwMjkwOTAxLCJleHAiOjE3MjAzMTk3MDF9.3ngrr0OkZpPeaOseO4Bgm4Sp7OZ4uhreLJwQg35u5sE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/auth/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"profile"
+					]
+				},
+				"description": "Get Loggedin user profile"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/user/2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzIwMjkwOTAxLCJleHAiOjE3MjAzMTk3MDF9.3ngrr0OkZpPeaOseO4Bgm4Sp7OZ4uhreLJwQg35u5sE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/user/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/user/2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzIwMjkwOTAxLCJleHAiOjE3MjAzMTk3MDF9.3ngrr0OkZpPeaOseO4Bgm4Sp7OZ4uhreLJwQg35u5sE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstname\": \"John\",\n  \"lastname\": \"Doe\",\n  \"email\": \"user@example.com\",\n  \"phone\": \"+12345678901\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/user/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"2"
+					]
+				},
+				"description": "update user info"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/user/2/reset-password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzIwMjkwOTAxLCJleHAiOjE3MjAzMTk3MDF9.3ngrr0OkZpPeaOseO4Bgm4Sp7OZ4uhreLJwQg35u5sE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"password\": \"StrongP@ssword1\",\n  \"oldPassword\": \"OldP@ssword1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/2/reset-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"2",
+						"reset-password"
+					]
+				},
+				"description": "reset user password"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/merchant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzIwMjkwOTAxLCJleHAiOjE3MjAzMTk3MDF9.3ngrr0OkZpPeaOseO4Bgm4Sp7OZ4uhreLJwQg35u5sE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/merchant?name=Acme%20Corp&page=1&pageSize=10",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"merchant"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Acme%20Corp"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						}
+					]
+				},
+				"description": "get merchant info"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/service?name=Premium%20Car%20Wash&merchantId=1&page=1&pageSize=10",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzIwMjkwOTAxLCJleHAiOjE3MjAzMTk3MDF9.3ngrr0OkZpPeaOseO4Bgm4Sp7OZ4uhreLJwQg35u5sE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/service?name=Premium%20Car%20Wash&merchantId=1&page=1&pageSize=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"service"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Premium%20Car%20Wash"
+						},
+						{
+							"key": "merchantId",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						}
+					]
+				},
+				"description": "fetch and search services"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/booking/1/pay",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 0,\n  \"paymentMethod\": \"credit_card\",\n  \"creditCardId\": 1,\n  \"walletId\": 1,\n  \"receiptUrl\": \"https://example.com/receipt.pdf\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/booking/1/pay",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"booking",
+						"1",
+						"pay"
+					]
+				},
+				"description": "Pay to merchant by credit card or by wallet"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/review",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzaGFraXJAdGVzdDIuY29tIiwiaWF0IjoxNzIwMzM1OTgwLCJleHAiOjE3MjAzNjQ3ODB9.iPuSpfvqtVLRLrddvW_rzO8r3rrfB9wOcnsDsmbp2LY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": 1,\n  \"merchantId\": 1,\n  \"bookingId\": 1,\n  \"rating\": 5,\n  \"comment\": \"Highly recommended\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/review",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"review"
+					]
+				},
+				"description": "post a review on marchant after payment"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/credit-card",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzaGFraXJAdGVzdDIuY29tIiwiaWF0IjoxNzIwMzM1OTgwLCJleHAiOjE3MjAzNjQ3ODB9.iPuSpfvqtVLRLrddvW_rzO8r3rrfB9wOcnsDsmbp2LY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"cardNumber\": \"4111111111111111\",\n  \"cardHolderName\": \"John Doe\",\n  \"expiryDate\": \"12/24\",\n  \"cvv\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/credit-card",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"credit-card"
+					]
+				},
+				"description": "add credit to user profile"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/credit-card",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzaGFraXJAdGVzdDIuY29tIiwiaWF0IjoxNzIwMzM1OTgwLCJleHAiOjE3MjAzNjQ3ODB9.iPuSpfvqtVLRLrddvW_rzO8r3rrfB9wOcnsDsmbp2LY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/credit-card",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"credit-card"
+					]
+				},
+				"description": "Get a users credit cards list"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/credit-card/14",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzaGFraXJAdGVzdDIuY29tIiwiaWF0IjoxNzIwMzM1OTgwLCJleHAiOjE3MjAzNjQ3ODB9.iPuSpfvqtVLRLrddvW_rzO8r3rrfB9wOcnsDsmbp2LY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/credit-card/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"credit-card",
+						"14"
+					]
+				},
+				"description": "Delete users credit card"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/wallet",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzaGFraXJAdGVzdDIuY29tIiwiaWF0IjoxNzIwMzM1OTgwLCJleHAiOjE3MjAzNjQ3ODB9.iPuSpfvqtVLRLrddvW_rzO8r3rrfB9wOcnsDsmbp2LY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/wallet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"wallet"
+					]
+				},
+				"description": "Get user wallets"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/wallet",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzaGFraXJAdGVzdDIuY29tIiwiaWF0IjoxNzIwMzM1OTgwLCJleHAiOjE3MjAzNjQ3ODB9.iPuSpfvqtVLRLrddvW_rzO8r3rrfB9wOcnsDsmbp2LY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": 1,\n  \"type\": \"crypto\",\n  \"balance\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/wallet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"wallet"
+					]
+				},
+				"description": "Add umer wallet"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/wallet",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/wallet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"wallet"
+					]
+				},
+				"description": "delete user wallet"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/booking",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzaGFraXJAdGVzdDIuY29tIiwiaWF0IjoxNzIwMzM1OTgwLCJleHAiOjE3MjAzNjQ3ODB9.iPuSpfvqtVLRLrddvW_rzO8r3rrfB9wOcnsDsmbp2LY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"booking"
+					]
+				},
+				"description": "Get user's bookings"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/booking/1/complete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJzaGFraXJAdGVzdDIuY29tIiwiaWF0IjoxNzIwMzM1OTgwLCJleHAiOjE3MjAzNjQ3ODB9.iPuSpfvqtVLRLrddvW_rzO8r3rrfB9wOcnsDsmbp2LY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/booking/1/complete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"booking",
+						"1",
+						"complete"
+					]
+				},
+				"description": "for merchant to mark booking as complete"
+			},
+			"response": []
+		}
+	]
+}
